@@ -1,6 +1,7 @@
 package scrap.heap.refactor.constants;
 
 public enum Size {
+    EMPTY(""),
     SMALL("small"),
     MEDIUM("medium"),
     LARGE("large");

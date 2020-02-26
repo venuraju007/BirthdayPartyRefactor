@@ -1,6 +1,7 @@
 package scrap.heap.refactor.constants;
 
 public enum Shape {
+    EMPTY(""),
     SQUARE("square"),
     CIRCLE("circle");
 

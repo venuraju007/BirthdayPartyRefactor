@@ -1,6 +1,7 @@
 package scrap.heap.refactor.constants;
 
 public enum Material {
+    EMPTY(""),
     MYLAR("mylar"),
     LATEX("latex");
 

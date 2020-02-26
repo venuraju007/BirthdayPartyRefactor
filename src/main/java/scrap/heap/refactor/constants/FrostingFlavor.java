@@ -1,6 +1,7 @@
 package scrap.heap.refactor.constants;
 
 public enum FrostingFlavor {
+    EMPTY(""),
     CHOCOLATE("chocolate"),
     VANILLA("vanilla");
 

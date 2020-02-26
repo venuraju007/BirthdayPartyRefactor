@@ -8,9 +8,9 @@ import scrap.heap.refactor.constants.Material;
  */
 public class BalloonBuilder {
 
-    private Color color;
-    private Material material;
-    private Integer count;
+    private Color color = Color.EMPTY;
+    private Material material = Material.EMPTY;
+    private Integer count = 0;
 
     public BalloonBuilder withColor(Color color) {
         this.color = color;

@@ -27,5 +27,8 @@ public class BalloonTest {
         Assert.assertNotEquals(balloon.getMaterial(), Material.MYLAR);
         Assert.assertNotEquals(balloon.getCount(), Integer.valueOf(1));
 
+        Balloon balloonInComplete = new BalloonBuilder()
+                .withColor(Color.BLUE).withCount(6).build();
+        Assert.assertEquals(balloonInComplete.getMaterial(), Material.EMPTY);
     }
 }

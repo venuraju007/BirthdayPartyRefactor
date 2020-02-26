@@ -1,6 +1,7 @@
 package scrap.heap.refactor.constants;
 
 public enum Color {
+    EMPTY(""),
     RED("red"),
     BLUE("blue"),
     YELLOW("yellow"),

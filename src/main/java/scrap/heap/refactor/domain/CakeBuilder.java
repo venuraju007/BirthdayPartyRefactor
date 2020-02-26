@@ -7,11 +7,11 @@ import scrap.heap.refactor.constants.*;
  */
 public class CakeBuilder {
 
-    private Flavor flavor;
-    private FrostingFlavor frostingFlavor;
-    private Shape shape;
-    private Size size;
-    private Color color;
+    private Flavor flavor = Flavor.EMPTY;
+    private FrostingFlavor frostingFlavor = FrostingFlavor.EMPTY;
+    private Shape shape = Shape.EMPTY;
+    private Size size = Size.EMPTY;
+    private Color color = Color.EMPTY;
 
     public CakeBuilder withFlavor(Flavor flavor) {
         this.flavor = flavor;

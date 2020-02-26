@@ -32,5 +32,11 @@ public class CakeTest {
         Assert.assertNotEquals(cake.getSize(), Size.MEDIUM);
         Assert.assertNotEquals(cake.getColor(), Color.BLUE);
 
+        Cake cakeInComplete = new CakeBuilder().build();
+        Assert.assertEquals(cakeInComplete.getFlavor(), Flavor.EMPTY);
+        Assert.assertEquals(cakeInComplete.getFrostingFlavor(), FrostingFlavor.EMPTY);
+        Assert.assertEquals(cakeInComplete.getShape(), Shape.EMPTY);
+        Assert.assertEquals(cakeInComplete.getSize(), Size.EMPTY);
+        Assert.assertEquals(cakeInComplete.getColor(), Color.EMPTY);
     }
 }
