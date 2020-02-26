@@ -1,38 +1,103 @@
+/**
+ * Refactor Exercise
+ * Feb 26, 2020
+ */
+
 package scrap.heap.refactor;
 
+import scrap.heap.refactor.constants.*;
+import scrap.heap.refactor.domain.*;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * Main Application class for placing Birthday Orders.
+ * All Order, Balloon, and Cake objects are built using builder pattern.
+ * An Order is composed of Ballon and Cake objects.
+ * Enum constants are used for majority of Balloon and Cake attributes.
+ */
+
 public class App {
+
     public String getGreeting() {
         return "Hello world.";
     }
 
     public static void main(String[] args) {
+        // Place birthday party orders
+        // 1. Builder Orders
+        // 2. Place Orders
 
-         //Place birthday party orders
-         order("red", "mylar", "4", "chocolate", "chocolate", "circle", "large", "brown" );
-         order("blue", "latex", "7", "Vanilla", "chocelate", "square", "med", "brown" );
-         order("yellow", "mylar", "4", "vanilla", "vanilla", "square", "small", "yellow" );
-
+        App app = new App();
+        List<Order> orders = app.buildOrders();
+        app.placeOrders(orders);
     }
 
-    private static void order(String balloonColor, String material, String number, String flavor, String frostingFlavor, String shape, String size, String cakeColor){
+    /**
+     * Build and return a list of orders
+     */
+    private List<Order> buildOrders() {
 
-        orderBalloons(balloonColor, material, number);
+        List<Order> orders = new ArrayList<>();
 
-        orderCake(frostingFlavor, flavor, shape, size, cakeColor);
+        Order order1 = new OrderBuilder()
+                .withBalloon(new BalloonBuilder()
+                        .withColor(Color.RED)
+                        .withMaterial(Material.MYLAR)
+                        .withCount(4)
+                        .build())
+                .withCake(new CakeBuilder()
+                        .withFlavor(Flavor.CHOCOLATE)
+                        .withFrostingFlavor(FrostingFlavor.CHOCOLATE)
+                        .withShape(Shape.CIRCLE)
+                        .withSize(Size.LARGE)
+                        .withColor(Color.BROWN)
+                        .build())
+                .build();
+
+        Order order2 = new OrderBuilder()
+                .withBalloon(new BalloonBuilder()
+                        .withColor(Color.BLUE)
+                        .withMaterial(Material.LATEX)
+                        .withCount(7)
+                        .build())
+                .withCake(new CakeBuilder()
+                        .withFlavor(Flavor.VANILLA)
+                        .withFrostingFlavor(FrostingFlavor.CHOCOLATE)
+                        .withShape(Shape.SQUARE)
+                        .withSize(Size.MEDIUM)
+                        .withColor(Color.BROWN)
+                        .build())
+                .build();
+
+        Order order3 = new OrderBuilder()
+                .withBalloon(new BalloonBuilder()
+                        .withColor(Color.YELLOW)
+                        .withMaterial(Material.MYLAR)
+                        .withCount(4)
+                        .build())
+                .withCake(new CakeBuilder()
+                        .withFlavor(Flavor.VANILLA)
+                        .withFrostingFlavor(FrostingFlavor.VANILLA)
+                        .withShape(Shape.SQUARE)
+                        .withSize(Size.SMALL)
+                        .withColor(Color.YELLOW)
+                        .build())
+                .build();
+
+        orders.add(order1);
+        orders.add(order2);
+        orders.add(order3);
+
+        return orders;
     }
 
-    private static void orderBalloons(String balloonColor, String material, String number){
-
-        //for the purposes of this exercise, pretend this method works and adds balloons to the order
-        System.out.println("Balloons ordered; " + balloonColor + ", " + material  + ", " + number);
-
+    /**
+     * Place Orders
+     * @param orders
+     */
+    private void placeOrders(List<Order> orders) {
+        orders.forEach(e -> e.order());
     }
-
-    private static void orderCake(String flavor, String frostingFlavor, String shape, String size, String cakeColor){
-
-        //for the purposes of this exercise, pretend that this method adds a cake to the order
-        System.out.println("cake ordered; " + flavor + ", " + frostingFlavor  + ", " + shape + ", " + size + ", " + cakeColor);
-
-    }
-
 }
